@@ -13,3 +13,85 @@
  *= require_tree .
  *= require_self
  */
+
+ /* app/assets/stylesheets/application.css などに追加 */
+.header {
+  display: flex;
+  justify-content: flex-end; /* 右端に寄せる */
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #f5f5f5;
+}
+
+.user-menu {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* アイコンと名前の間 */
+  position: relative;
+}
+
+.icon-img {
+  border-radius: 50%;
+}
+
+.dropdown-toggle {
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 10px;
+  min-width: 150px;
+  z-index: 100;
+  list-style: none;
+}
+
+.dropdown-menu li {
+  padding: 5px 0;
+}
+
+.dropdown-menu li a {
+  text-decoration: none;
+  color: black;
+}
+
+.dropdown-menu li a:hover {
+  background-color: #f0f0f0;
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+
+input.no-spin[type=number] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+  -webkit-appearance: none;
+}
+
+input.no-spin::-webkit-inner-spin-button,
+input.no-spin::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.icon-img {
+  width: 40px ;
+  height: 40px;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

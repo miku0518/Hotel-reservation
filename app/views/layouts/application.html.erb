@@ -18,6 +18,37 @@
   </head>
 
   <body>
+  <body>
+  <header class="header">
+    <% if user_signed_in? %>
+      <div class="user-menu">
+        <div class="user-icon">
+          <% if current_user.icon.attached? %>
+            <%= image_tag current_user.icon, class: "icon-img" %>
+          <% else %>
+            <%= image_tag "default_icon.png", class: "icon-img" %>
+          <% end %>
+        </div>
+        <div class="dropdown">
+          <span id="dropdownToggle" class="dropdown-toggle">
+            <%= current_user.name %>
+          </span>
+          <ul id="dropdownMenu" class="dropdown-menu hidden">
+            <li><%= link_to "アカウント情報", user_account_path %>
+            <li><%= link_to "施設の新規登録", new_room_path %>
+            <li><%= link_to "施設一覧ページ",rooms_path %> 
+             <li><%= link_to "予約一覧ページ",reservations_path %> 
+            <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+          </ul>
+        </div>
+
+      </div>
+    <% else %>
+      <!-- ログアウト中 -->
+      <%= link_to "ログイン", new_user_session_path %>
+      <%= link_to "新規登録", new_user_registration_path %>
+    <% end %>
+  </header>
     <%= yield %>
   </body>
 </html>

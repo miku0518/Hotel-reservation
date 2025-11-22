@@ -1,0 +1,30 @@
+<h2>予約ページ<h2>
+
+<%= form_with model: [@room, @reservation], local: true do |f| %>
+  <% if @reservation.errors.any? %>
+    <div>
+      <ul>
+        <% @reservation.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= f.label :checkin, "チェックイン日" %>
+    <%= f.date_field :checkin, required: true %>
+  </div>
+
+  <div>
+    <%= f.label :checkout, "チェックアウト日" %>
+    <%= f.date_field :checkout, required: true %>
+  </div>
+
+  <div>
+    <%= f.label :people, "人数" %>
+    <%= f.number_field :people, min: 1, required: true %>
+  </div>
+
+  <%= f.submit "予約する" %>
+<% end %>

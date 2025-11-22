@@ -1,0 +1,31 @@
+<h1>アカウント情報</h1>
+
+<div class="account-info">
+
+  <p>
+    <strong>メールアドレス：</strong>
+    <%= current_user.email %>
+  </p>
+
+  <p>
+    <strong>パスワード：</strong>
+    *********
+  </p>
+
+</div>
+
+<p>
+  <%= link_to "アカウント編集（メール / パスワード）", edit_user_registration_path %>
+</p>
+
+
+<div class="account-links">
+  <!-- プロフィール編集（アイコン・名前・自己紹介） -->
+  <p>
+    <%= link_to "プロフィール編集", edit_profile_user_path(current_user) %>
+  </p>
+
+  <p>
+    <%= link_to "戻る", root_path %>
+  </p>
+</div>
