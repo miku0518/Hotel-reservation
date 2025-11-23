@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("turbo:load", () => {
   const toggle = document.getElementById("dropdownToggle");
   const menu = document.getElementById("dropdownMenu");
   if (!toggle || !menu) return;

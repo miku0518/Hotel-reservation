@@ -33,7 +33,7 @@
           <span id="dropdownToggle" class="dropdown-toggle">
             <%= current_user.name %>
           </span>
-          <ul id="dropdownMenu" class="dropdown-menu hidden">
+          <ul id="dropdownMenu" class="dropdown-menu">
             <li><%= link_to "アカウント情報", user_account_path %>
             <li><%= link_to "施設の新規登録", new_room_path %>
             <li><%= link_to "施設一覧ページ",rooms_path %> 
@@ -41,7 +41,6 @@
             <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
           </ul>
         </div>
-
       </div>
     <% else %>
       <!-- ログアウト中 -->
