@@ -1,0 +1,27 @@
+<h1>施設検索</h1>
+
+<%= form_with url: search_rooms_path, method: :get, local: true do |f| %>
+  <div>
+    <%= f.label :query, "フリーワード" %>
+    <%= f.text_field :query, value: params[:query] %>
+  </div>
+
+  <div>
+    <%= f.label :area, "エリア" %>
+    <%= f.text_field :area, value: params[:area], placeholder: "例：東京、大阪、京都、札幌" %>
+  </div>
+  <%= f.submit "検索" %>
+<% end %>
+
+<p>検索結果: <%= @rooms.count %> 件</p>
+
+<ul>
+  <% @rooms.each do |room| %>
+    <li>
+      <%= link_to room.hotelname, room_path(room) %><br>
+      住所: <%= room.adress %><br>
+      詳細: <%= room.hotelintoroduction %><br>
+      料金: <%= room.price %> 円 / 日
+    </li>
+  <% end %>
+</ul>

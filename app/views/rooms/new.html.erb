@@ -1,0 +1,45 @@
+<h1>施設の新規登録</h1>
+
+<%= form_with model: @room, local: true do |f| %>
+  <% if @room.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@room.errors.count, "error") %> 件のエラーがあります</h2>
+      <ul>
+        <% @room.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :hotelname, "施設名" %><br>
+    <%= f.text_field :hotelname, required: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :hotelintoroduction, "施設詳細" %><br>
+    <%= f.text_area :hotelintoroduction, required: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :price, "料金（/日）" %><br>
+    <%= f.number_field :price, min: 1, required: true, class: "no-spin" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :adress, "住所" %><br>
+    <%= f.text_field :adress, required: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image, "施設画像" %><br>
+    <%= f.file_field :image, direct_upload: true %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "保存" %>
+  </div>
+<% end %>
+
+<%= link_to "キャンセル", rooms_path %>
